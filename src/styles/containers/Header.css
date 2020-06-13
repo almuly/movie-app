@@ -1,0 +1,20 @@
+.header {
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  height: 230px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #f5f5f7;
+}
+.background-image {
+  background-image: url("../images/movies-tiles.jpg");
+
+  position: relative;
+}
+.header__container {
+  display: flex;
+  flex-direction: column;
+}
+.header_p {
+  padding-right: 15px;
+}

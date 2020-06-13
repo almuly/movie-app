@@ -1,0 +1,13 @@
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  justify-content: center;
+  grid-gap: 2vw;
+}
+.item {
+  border-radius: 6px;
+  margin-top: 15px;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+}

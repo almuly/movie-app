@@ -1,0 +1,31 @@
+.header__search {
+    margin-bottom: 25px;
+    outline: none;
+    width: 665px;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000000;
+    border-bottom: 2px solid #b94a48;
+    color: #ffffff;
+}
+.header__button {
+    color: #ffffff;
+    padding-right: 10px;
+}
+.active {
+    color: #000;
+}
+
+
+.search__bottom-type {
+    display: flex;
+}
+
+.search__bottom {
+    display: flex;
+    justify-content: space-between;
+}
+ .search__title{
+     padding-bottom: 25px;
+ }

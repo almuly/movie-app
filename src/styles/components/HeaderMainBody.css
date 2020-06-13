@@ -1,0 +1,21 @@
+h3 {
+    font-weight: normal;
+}
+
+.products__header {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    margin-top: 25px;
+}
+.products__sort {
+    font-weight: bold;
+}
+.active{
+    color:red;
+}

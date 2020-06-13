@@ -1,0 +1,12 @@
+.movie__item {
+  cursor: pointer;
+  overflow: hidden;
+}
+.movie__img-wrap {
+
+}
+.movie__img {
+  max-height: 100%;
+  max-width: 100%;
+
+}
