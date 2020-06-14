@@ -32,11 +32,14 @@ padding-bottom: 5px;
   line-height: 15px;
 
 }
-.movies__votes-genres{
+.movie__votes-genres{
   display:flex;
   flex-direction: column;
   justify-content: space-between;
   color: gray;
   font-size: 15px;
   text-transform:capitalize;
+}
+.movie__genres{
+  font-size: 17px;
 }

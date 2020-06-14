@@ -24,8 +24,8 @@ const Card = ({ movie }) => {
             {movie.release_date.substring(0, 4)}
           </span>
         </div>
-        <div className="movies__votes-genres">
-          <p className="genres">{movie.genres.splice(0, 2).join(" & ")}</p>
+        <div className="movie__votes-genres">
+          <p className="movie__genres">{movie.genres.splice(0, 2).join(" & ")}</p>
           <p className="movie__score">rate score {movie.vote_average}</p>
         </div>
       </div>
