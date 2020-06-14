@@ -14,6 +14,7 @@
 .header__container {
   display: flex;
   flex-direction: column;
+  text-transform: uppercase;
 }
 .header_p {
   padding-right: 15px;

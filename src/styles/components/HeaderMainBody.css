@@ -1,21 +1,27 @@
-h3 {
-    font-weight: normal;
+p {
+    font-weight: bold;
 }
 
-.products__header {
-
+.movies__header-body {
+    max-width: 1000px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #ffffff;
-    padding: 8px;
+    padding:17px 0px;
     border-radius: 4px;
-    margin-bottom: 30px;
-    margin-top: 25px;
+    margin: 0 auto;
 }
-.products__sort {
+.movies__sort-block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:250px;
+}
+
+.movies__sort {
     font-weight: bold;
 }
-.active{
-    color:red;
+.active__sort{
+    color:#f85163;
 }

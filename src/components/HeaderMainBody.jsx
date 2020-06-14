@@ -15,15 +15,15 @@ const HeaderMainBody = ({ sortMoviesAsc, sortMoviesDesc, movies }) => {
   };
   console.log(active.flag);
   return (
-    <div className="products__header container">
-      <h3>{movies.current.length}</h3>
-      <div>
+    <div className=" movies__header-body ">
+      <p>{movies.current.length} movies found</p>
+      <div className="movies__sort-block">
         Sort by
         <a
           id="sort"
           href="#"
-          className={classNames("products__sort", {
-            ["active"]: active.flag,
+          className={classNames("movies__sort", {
+            ["active__sort"]: active.flag,
           })}
           onClick={handleClick}
         >
@@ -32,8 +32,8 @@ const HeaderMainBody = ({ sortMoviesAsc, sortMoviesDesc, movies }) => {
         <a
           id="sort"
           href="#"
-          className={classNames("products__sort", {
-            ["active"]: !active.flag,
+          className={classNames("movies__sort", {
+            ["active__sort"]: !active.flag,
           })}
           onClick={handleClick}
         >

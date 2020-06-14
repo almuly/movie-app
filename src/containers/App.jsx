@@ -11,12 +11,15 @@ import HeaderMainBody from "../components/HeaderMainBody";
 
 import "../styles/containers/App.css";
 import { startLoader, endLoader, addMovies } from "../actions";
+import Loader from "../components/Loader";
 
-const App = ({ addMovies }) => {
+const App = ({load}) => {
 
   return (
     <>
+        <Loader display={load} />
       <Header />
+
       <HeaderMainBody/>
       <MainBody/>
     </>
@@ -31,11 +34,4 @@ const mapDispatchToProps = {
   endLoader,
   addMovies,
 };
-
-// App.propTypes = {
-//   load: bool.isRequired,
-//   startLoader: func.isRequired,
-//   endLoader: func.isRequired,
-//   addMovies: func.isRequired,
-// };
 export default compose(connect(mapStateToProps, mapDispatchToProps), memo)(App);

@@ -9,6 +9,9 @@ module.exports = merge.smart(common, {
   output: {
     publicPath: '/',
   },
+
+
+
   resolve: {
     alias: {
       'react-dom': '@hot-loader/react-dom',
