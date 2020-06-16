@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { compose } from "redux";
-import classNames from "classnames";
-import { bool, func } from "prop-types";
-import Loader from "./Loader";
-import { movieTitle, movieGenre } from "../constants/API";
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import classNames from 'classnames';
+import { bool, func } from 'prop-types';
+import Loader from './Loader';
+import { movieTitle, movieGenre } from '../constants/API';
 
-import { startLoader, endLoader, searchMovies, addMovies } from "../actions";
+import {
+  startLoader, endLoader, searchMovies, addMovies,
+} from '../actions';
 
-import "../styles/components/Search.css";
+import '../styles/components/Search.css';
 
-const Search = ({ load, addMovies, startLoader, endLoader }) => {
-  const [value, setValue] = useState("");
-  const [query, setQuery] = useState("");
+const Search = ({
+  load, addMovies, startLoader, endLoader,
+}) => {
+  const [value, setValue] = useState('');
+  const [query, setQuery] = useState('');
   const [click, setClick] = useState({ title: true, limit: 0 });
 
   const handleInput = (event) => {
@@ -38,19 +42,20 @@ const Search = ({ load, addMovies, startLoader, endLoader }) => {
 
   useEffect(() => {
     setTimeout(() => {
-             if (query !== "") {
-          fetch(
+      if (query !== '') {
+        fetch(
           click.title
             ? movieTitle(query, click.limit)
-            : movieGenre(query, click.limit)
+            : movieGenre(query, click.limit),
         )
           .then((response) => response.json())
 
-            .then((movies) => {
-
-            addMovies(movies.data);
+          .then((movies) => {
+            addMovies(movies.data).sort(
+              (a, b) => a.vote_average - b.vote_average,
+            );
             console.log(movies.data);
-              endLoader();
+            endLoader();
           })
 
           .catch((err) => {
@@ -63,8 +68,7 @@ const Search = ({ load, addMovies, startLoader, endLoader }) => {
 
   return (
     <div>
-
-      <form onSubmit={handleSearch} >
+      <form onSubmit={handleSearch}>
         <p className="search__title">Find your movie</p>
         <input
           id="search"
@@ -79,8 +83,8 @@ const Search = ({ load, addMovies, startLoader, endLoader }) => {
             <a
               href="#"
               onClick={handleClickTitle}
-              className={classNames("a__search", {
-                ["active"]: click.title,
+              className={classNames('a__search', {
+                active: click.title,
               })}
             >
               title
@@ -88,14 +92,18 @@ const Search = ({ load, addMovies, startLoader, endLoader }) => {
             <a
               href="#"
               onClick={handleClickGenre}
-              className={classNames("a__search", {
-                ["active"]: !click.title,
+              className={classNames('a__search', {
+                active: !click.title,
               })}
             >
               genre
             </a>
           </div>
-          <button className="search__button" type="submit" onClick={startLoader}>
+          <button
+            className="search__button"
+            type="submit"
+            onClick={startLoader}
+          >
             Search
           </button>
         </div>

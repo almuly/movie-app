@@ -1,9 +1,9 @@
-import { handleActions } from "redux-actions";
+import { handleActions } from 'redux-actions';
 
 // actions
-import { startLoader, endLoader } from "../actions";
+import { startLoader, endLoader } from '../actions';
 
-import { loadState } from "../constants/defaultState";
+import { loadState } from '../constants/defaultState';
 
 export default {
   load: handleActions(
@@ -11,6 +11,6 @@ export default {
       [startLoader]: () => true,
       [endLoader]: () => false,
     },
-    loadState
+    loadState,
   ),
 };

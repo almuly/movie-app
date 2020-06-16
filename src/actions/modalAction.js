@@ -1,9 +1,9 @@
-import {createActions} from "redux-actions";
+import { createActions } from 'redux-actions';
 
 export const {
   openModal,
-  closeModal
+  closeModal,
 } = createActions(
-    'OPEN_MODAL',
-    'CLOSE_MODAL'
+  'OPEN_MODAL',
+  'CLOSE_MODAL',
 );

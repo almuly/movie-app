@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import { compose } from "redux";
-import { connect } from "react-redux";
-import "../styles/containers/Card.css";
-import { useHistory } from "react-router";
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import '../styles/containers/Card.css';
+import { useHistory } from 'react-router';
 
 const Card = ({ movie }) => {
   const history = useHistory();
@@ -25,14 +25,19 @@ const Card = ({ movie }) => {
           </span>
         </div>
         <div className="movie__votes-genres">
-          <p className="movie__genres">{movie.genres.splice(0, 2).join(" & ")}</p>
-          <p className="movie__score">rate score {movie.vote_average}</p>
+          <p className="movie__genres">
+            {movie.genres.splice(0, 2).join(' & ')}
+          </p>
+          <p className="movie__score">
+            rate score
+            {movie.vote_average}
+          </p>
         </div>
       </div>
     </div>
   );
 };
-Card.displayName = "Card";
+Card.displayName = 'Card';
 const mapStateToProps = (state) => ({
   movies: state.movies.current,
 });

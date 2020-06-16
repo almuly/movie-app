@@ -25,3 +25,24 @@ p {
 .active__sort{
     color:#f85163;
 }
+.active__direction{
+    color:#f85163;
+}
+
+.up {
+    color: black;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down { color: black;
+
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+i {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
