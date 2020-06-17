@@ -1,10 +1,12 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+import React from "react";
 
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import '../styles/containers/Card.css';
-import { useHistory } from 'react-router';
+import { compose } from "redux";
+import { connect } from "react-redux";
+import "../styles/containers/Card.css";
+import { useHistory } from "react-router";
 
+// eslint-disable-next-line react/prop-types
 const Card = ({ movie }) => {
   const history = useHistory();
 
@@ -26,7 +28,7 @@ const Card = ({ movie }) => {
         </div>
         <div className="movie__votes-genres">
           <p className="movie__genres">
-            {movie.genres.splice(0, 2).join(' & ')}
+            {movie.genres.splice(0, 2).join(" & ")}
           </p>
           <p className="movie__score">
             rate score
@@ -37,7 +39,7 @@ const Card = ({ movie }) => {
     </div>
   );
 };
-Card.displayName = 'Card';
+Card.displayName = "Card";
 const mapStateToProps = (state) => ({
   movies: state.movies.current,
 });

@@ -1,11 +1,6 @@
-import React, { Component } from 'react';
+import React from "react";
 
-import '../styles/components/Logo.css';
+import "../styles/components/Logo.css";
 
-export default class Logo extends Component {
-  render() {
-    return (
-      <div className="header__logo">NotNetflix</div>
-    );
-  }
-}
+const Logo = () => <div className="header__logo">NotNetflix</div>;
+export default Logo;

@@ -2,13 +2,13 @@ import { combineReducers } from 'redux';
 
 
 import loadReducer from './loadReducer';
-import productsReducer from './moviesReducer';
+import moviesReducer from './moviesReducer';
 
 
 const reducers = combineReducers({
 
   ...loadReducer,
-  ...productsReducer,
+  ...moviesReducer,
 });
 
 export default reducers;

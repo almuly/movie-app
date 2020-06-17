@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import classNames from 'classnames';
-import { bool, func } from 'prop-types';
-import Loader from './Loader';
-import { movieTitle, movieGenre } from '../constants/API';
+/* eslint-disable */
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { compose } from "redux";
+import classNames from "classnames";
+import { bool, func } from "prop-types";
 
-import {
-  startLoader, endLoader, searchMovies, addMovies,
-} from '../actions';
+import { movieTitle, movieGenre } from "../constants/API";
 
-import '../styles/components/Search.css';
+import { startLoader, endLoader, searchMovies, addMovies } from "../actions";
 
-const Search = ({
-  load, addMovies, startLoader, endLoader,
-}) => {
-  const [value, setValue] = useState('');
-  const [query, setQuery] = useState('');
+import "../styles/components/Search.css";
+
+const Search = ({ addMovies, startLoader, endLoader }) => {
+  const [value, setValue] = useState("");
+  const [query, setQuery] = useState("");
   const [click, setClick] = useState({ title: true, limit: 0 });
 
   const handleInput = (event) => {
@@ -42,18 +39,16 @@ const Search = ({
 
   useEffect(() => {
     setTimeout(() => {
-      if (query !== '') {
+      if (query !== "") {
         fetch(
           click.title
             ? movieTitle(query, click.limit)
-            : movieGenre(query, click.limit),
+            : movieGenre(query, click.limit)
         )
           .then((response) => response.json())
 
           .then((movies) => {
-            addMovies(movies.data).sort(
-              (a, b) => a.vote_average - b.vote_average,
-            );
+            addMovies(movies.data);
             console.log(movies.data);
             endLoader();
           })
@@ -83,7 +78,7 @@ const Search = ({
             <a
               href="#"
               onClick={handleClickTitle}
-              className={classNames('a__search', {
+              className={classNames("a__search", {
                 active: click.title,
               })}
             >
@@ -92,7 +87,7 @@ const Search = ({
             <a
               href="#"
               onClick={handleClickGenre}
-              className={classNames('a__search', {
+              className={classNames("a__search", {
                 active: !click.title,
               })}
             >

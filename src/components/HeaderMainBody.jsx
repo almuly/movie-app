@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import classNames from 'classnames';
+/* eslint-disable quotes,jsx-a11y/anchor-is-valid,jsx-a11y/anchor-has-content */
+import React, { useState } from "react";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import classNames from "classnames";
 import {
   sortMoviesAsc,
   sortMoviesDesc,
   sortMoviesByDate,
   sortMoviesByRate,
-} from '../actions';
+} from "../actions";
 
-import '../styles/components/HeaderMainBody.css';
+import "../styles/components/HeaderMainBody.css";
 
 const HeaderMainBody = ({
   sortMoviesAsc,
@@ -18,43 +19,43 @@ const HeaderMainBody = ({
   sortMoviesByRate,
   movies,
 }) => {
-  const [active, setActive] = useState({ flag: false });
-  const [sort, setSort] = useState({ direction: true });
+  const [active, setActive] = useState({ flag: true });
+  const [sort, setSort] = useState({ direction: false });
   const handleClick = (event) => {
     event.preventDefault();
     setActive((prevState) => ({ flag: !prevState.flag }));
     active.flag ? sortMoviesByDate() : sortMoviesByRate();
   };
-  const handleSortAsc = (event) => {
+  const handleSort = (event) => {
     event.preventDefault();
-    // debugger;
-    sortMoviesAsc();
-  };
-  const handleSortDesc = (event) => {
-    event.preventDefault();
-
-    sortMoviesDesc();
+    setSort((prevState) => ({ direction: !prevState.direction }));
+    sort.direction ? sortMoviesAsc() : sortMoviesDesc();
   };
 
-  console.log(sortMoviesDesc);
-  console.log(sortMoviesAsc);
   return (
     <div className=" movies__header-body ">
-      <p>
-        {movies.current.length}
-        {' '}
-        movies found
-      </p>
+      <p>{movies.current.length} movies found</p>
       <div className="movies__sort-block">
         Sort by
-
-        <i className=" up" onClick={handleSortAsc} />
-        <i className="down" onClick={handleSortDesc}> </i>
+        <div className="movies__sort-direction-block">
+          <a
+            className={classNames("up", {
+              __direction: sort.direction,
+            })}
+            onClick={handleSort}
+          />
+          <a
+            className={classNames("down", {
+              __direction: !sort.direction,
+            })}
+            onClick={handleSort}
+          />
+        </div>
         <a
           id="sort"
           href="#"
-          className={classNames('movies__sort', {
-            active__sort: active.flag,
+          className={classNames("movies__sort", {
+            active__sort: !active.flag,
           })}
           onClick={handleClick}
         >
@@ -63,8 +64,8 @@ const HeaderMainBody = ({
         <a
           id="sort"
           href="#"
-          className={classNames('movies__sort', {
-            active__sort: !active.flag,
+          className={classNames("movies__sort", {
+            active__sort: active.flag,
           })}
           onClick={handleClick}
         >
@@ -85,5 +86,5 @@ const mapStateToProps = (state) => ({
   movies: state.movies,
 });
 export default compose(connect(mapStateToProps, mapDispatchToProps))(
-  HeaderMainBody,
+  HeaderMainBody
 );
